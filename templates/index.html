@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Школа юных гениев - Обзор курсов</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="chat-container">
+        <div class="header">
+            <h1>Школа юных гениев<br><small style="font-size: 0.6em; color: #666;">Обзор курсов для изучения</small>
+            </h1>
+        </div>
+        <div id="chat-box" class="chat-box"> {% for entry in chat_history %} <div class="message user">
+                <strong>Вы:</strong> {{ entry.user_message }}</div>
+            <div class="message llm"><strong>Помощник:</strong> {{ entry.llm_reply }}</div> {% endfor %}
+        </div>
+        <form id="chat-form" autocomplete="off"> <input type="text" id="user-input"
+                placeholder="Задайте вопрос о курсах..." required> <button type="submit">Отправить</button> </form>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
